@@ -1,0 +1,399 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Edu Blog</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<!-- Font -->
+	 <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> 
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
+
+	<!-- Stylesheets -->
+
+	<link href="{{ static_url("common-css/bootstrap.css") }}" rel="stylesheet">
+  <link href="{{ static_url("css/postsingalstyles.css") }}" rel="stylesheet">
+  <link href="{{ static_url("css/responsivesingal.css") }}" rel="stylesheet">
+
+	<link href="{{ static_url("common-css/ionicons.css") }}" rel="stylesheet">
+  <link href="{{ static_url("common-css/bootstrap.css")}}" rel="stylesheet">
+
+  <link href="{{ static_url("common-css/ionicons.css")}}" rel="stylesheet">
+
+
+
+	<link href="{{ static_url("category/css/styles.css") }}" rel="stylesheet">
+
+	<link href="{{ static_url("category/css/responsive.css") }}" rel="stylesheet">
+
+</head>
+<style type="text/css">
+	body,html {
+  
+  font-family: 'Comfortaa', cursive;
+}
+
+.header {
+  background-color: #fff;
+  box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+}
+
+.header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 80%;
+  height: 65px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.header li a {
+  display: block;
+  padding: 20px 20px;
+  border-right: 1px solid #f4f4f4;
+  text-decoration: none;
+}
+
+.header li a:hover,
+.header .menu-btn:hover {
+  background-color: #f4f4f4;
+}
+
+.header .logo {
+  display: block;
+  float: left;
+  font-size: 2em;
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+.header .menu {
+  clear: both;
+  max-height: 0;
+  transition: max-height .2s ease-out;
+}
+
+/* menu icon */
+
+.header .menu-icon {
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  padding: 28px 20px;
+  position: relative;
+  user-select: none;
+}
+
+.header .menu-icon .navicon {
+  background: #333;
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background .2s ease-out;
+  width: 18px;
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+  background: #333;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+
+.header .menu-icon .navicon:before {
+  top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+  top: -5px;
+}
+
+/* menu btn */
+
+.header .menu-btn {
+  display: none;
+}
+
+.header .menu-btn:checked ~ .menu {
+  max-height: 240px;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  top: 0;
+}
+
+.imageblog{
+	background: url("https://img.pngio.com/-blog-png-1276_723.png");
+}
+
+
+@media (min-width: 48em) {
+  .header li {
+    float: left;
+  }
+  .header li a {
+    padding: 20px 30px;
+  }
+  .header .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+  }
+  .header .menu-icon {
+    display: none;
+  }
+}
+
+.sidebar.widget {
+  background: #f2f2f2;
+  border: 1px solid #ddd;
+  padding: 10px 20px;
+   overflow: -moz-scrollbars-none;
+}
+.sidebar.widget ul {
+    margin: 0px;
+    padding: 0;
+    overflow: hidden;
+}
+.sidebar.widget ul li {
+    overflow: hidden;
+    font-size: 14px;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 20px
+}
+.sidebar-thumb{
+    float: left;
+    overflow: hidden;
+    margin-right: 15px;
+}
+.sidebar-thumb img{
+  background: #fff;
+  border: 1px dashed #e0e0e0;
+  padding: 6px;
+  height: 75px;
+  width: 75px;
+  
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+}
+.sidebar-content h5{ 
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 24px;
+}
+.sidebar-content h5 a:hover{ 
+  color: #2996bd;
+}
+
+.sidebar-content h5 a{ 
+    color: #202020;
+    outline: 0 none;
+    text-decoration: none;
+    font-weight: bold
+}
+.sidebar-meta{
+  margin-top: 10px;
+}
+.sidebar-meta span{
+  color: #2e2e2e;
+}
+.sidebar-meta span.time{
+  margin-right: 10px;
+}
+.sidebar-meta span i{
+  color: #2996bd
+}
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+</style>
+<body style="overflow-y: hidden;" >
+	<header class="header">
+  <a style= href="/" class="logo" ><img style="width:180px; height: 50px;" src="https://edugorilla.com/wp-content/uploads/2016/10/logo-1.png"></a>
+  <ul class="menu" >
+    <li><a href="/catagory/music">MUSIC</a></li>
+    <li><a href="/catagory/tech">TECH</a></li>
+    <li><a href="/catagory/political">POLITICS</a></li>
+    <li><a href="/auth/home/user/mypost">MY POSTS</a></li>
+
+				<a href="/createblog" data-hover="LOGOUT" style="margin-top: 1%; margin-left: 8%;">
+				<button  formaction="/logout" class="btn btn-outline-success" style="margin-left: 1px;  height: 50%;">
+					CREATE NEW
+ 				 <i class="fas fa-plus" style="margin-left: 8%;"></i>
+				</button>
+				</a>
+				<a href="/profile" data-hover="LOGOUT" style="margin-top: 1%; margin-left: 2%;">
+				<button formaction="/profile" class="btn btn-outline-primary" style="margin-left: 1px;  height: 50%;">
+					PROFILE
+ 				 <i class="fas fa-user" style="margin-left: 8%;"></i>
+				</button>
+				</a>
+				<a href="/logout" data-hover="LOGOUT" style="margin-top: 1%; margin-left: 2%;">
+				<button  formaction="/logout" class="btn btn-outline-danger" style="margin-left: 1px;  height: 50%;">
+					LOGOUT
+ 				 <i class="fas fa-sign-out-alt" style="margin-left: 8%;"></i>
+				</button>
+				</a>
+  </ul>
+  
+</header>
+
+	
+
+	<section class="blog-area section" >
+		<div  class="container" style="float: right; width: 75%; height: 680px;" >
+
+			<div id="main" class="row" style="overflow-y: scroll; height: 682px; " >
+
+				{% block body %}
+             {% for entry in entries[0] %}
+                <div class="col-lg-4 col-md-6" style="border-radius: 15%;">
+					<div class="card h-100" style="border-radius: 15%;">
+						<div class="single-post post-style-1" style="border-radius: 5%;">
+
+							<div class="blog-image" style="border-radius: 5%;"><img src="{{entry[6]}}" alt="Blog Image" style="border-radius: 5%;"></div>
+
+							<a class="avatar" href="#"><img src="{{entry[6]}}" alt="Profile Image"></a>
+
+							<div class="blog-info">
+								<h4 class="title"><a href="#"><b>{{entry[1]}}</b></a></h4>
+
+								<ul class="post-footer">
+
+									<button style="margin-bottom: 2%;" id="{{entry[0]}}" class="btn btn-outline-primary" onclick="like('{{entry[0]}}')"><i class="far fa-thumbs-up"></i>{{entry[7]}}</button>
+									<button style="margin-bottom: 2%;" id="dis{{entry[0]}}" class="btn btn-outline-danger" 
+                   onclick="dislike('dis{{entry[0]}}')"><i class="far fa-thumbs-down"></i>{{entry[8]}}</button>
+                  <button style="margin-bottom: 2%;" class="btn btn-outline-dark" onclick="userfullpost('{{entry[0]}}')">
+
+
+									<i class="fas fa-angle-double-right"></i>More</button>
+								</ul>
+							</div><!-- blog-info -->
+
+						</div><!-- single-post -->
+
+					</div><!-- card -->
+				</div><!-- col-lg-4 col-md-6 -->
+               {% end %}
+              {% end%}
+				<!-- blog-info -->
+
+						</div><!-- single-post -->
+
+					</div><!-- card -->
+				</div><!-- col-lg-4 col-md-6 -->
+<!-- single-post -->
+
+					</div><!-- card -->
+				</div><!-- col-lg-4 col-md-6 -->
+
+			</div><!-- row -->
+
+
+		</div><!-- container -->
+		
+			<div class="row" style="height: 690px; overflow-y: hidden; background-color: #FFF;-webkit-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);-moz-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);">
+      <div class="col-md-12">
+      	<h3 style="color: #2996bd;margin: 5px 0px 2px;padding-bottom:5px;padding-left: 5px; border-left: 5px solid #32aae1;">TRENDING</h3>
+          <div class="sidebar widget" style="height: 680px; margin-left: 10px; overflow-y: scroll; ">
+              
+              <ul>
+                {% for trending in entries[1] %}
+                 <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">{{trending[1]}}</h4>
+        </div>
+        <div class="modal-body">
+          <p id="descqw">'{{trending[3]}}'</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+                <li style="height: 10%; width:100%;">
+                  
+                    <div class="sidebar-thumb" >
+                        <img class="animated rollIn" src="{{trending[6]}}" alt="{{trending[1]}}" />
+                    </div><!-- .Sidebar-thumb -->
+                    <div class="sidebar-content">
+                        <h5  data-toggle="modal" data-target="#myModal" class="animated bounceInRight"><a >{{trending[1]}}</a></h5>
+                        </div><!-- .Sidebar-thumb -->
+                    <div class="sidebar-meta">
+                        <span class="time" >{{trending[9]}}<i class="fa fa-clock-o"></i> </span>
+                        <span class="comment">{{trending[7]}}<i style="margin-left: 10px; " class="fa fa-heart"></i></span>
+                    </div><!-- .Sidebar-meta ends here -->
+                </li>
+
+                 {% end %}<!-- .Li ends here -->
+                 <!-- .Li ends here -->
+              </ul><!-- .Ul ends here -->
+          </div><!-- .Widget ends here -->
+      </div><!-- .Col ends here -->
+
+			</div>
+	
+	</section><!-- section -->
+
+		
+
+	<!-- SCIPTS -->
+
+	<script src="{{ static_url("common-js/jquery-3.1.1.min.js") }}"></script>
+
+	<script src="{{ static_url("common-js/tether.min.js") }}"></script>
+
+	<script src="{{ static_url("common-js/bootstrap.js") }}"></script>
+
+	<script src="{{ static_url("common-js/scripts.js") }}"></script>
+	
+  <!-- Trigger the modal with a button -->
+  <!-- Modal -->
+  
+ 
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+      <script type="text/javascript" src="{{static_url("js/homepagejs.js")}}"></script>
+   
+</body>
+</html>

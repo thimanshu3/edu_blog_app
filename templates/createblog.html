@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>new blog</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+			<link href="https://fonts.googleapis.com/css?family=Comfortaa:300&display=swap" rel="stylesheet">
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="{{ static_url("css/create.css") }} ">
+	</head>
+	<style type="text/css">
+	body {
+  font-family: 'Comfortaa', cursive;
+}
+
+.widget {
+  margin: 1rem 0;
+}
+.widget span {
+  display: inline-block;
+  margin-right: 2rem;
+}
+
+/* Radio Button styles */
+.radio input[type="radio"]:checked,
+.radio input[type="radio"]:not(:checked) {
+  position: absolute;
+  visibility: hidden;
+}
+.radio input[type="radio"]:checked + label,
+.radio input[type="radio"]:not(:checked) + label {
+  position: relative;
+  padding-left: 1.725rem;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 20px;
+}
+.radio input[type="radio"]:checked + label:before,
+.radio input[type="radio"]:not(:checked) + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 100%;
+  background: #fff;
+}
+.radio input[type="radio"]:checked + label:after,
+.radio input[type="radio"]:not(:checked) + label:after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: green;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+input[type="radio"]:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+input[type="radio"]:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+/* Checkbox Button styles */
+.checkbox input[type="checkbox"]:checked,
+.checkbox input[type="checkbox"]:not(:checked) {
+  position: absolute;
+  visibility: hidden;
+}
+.checkbox input[type="checkbox"]:checked + label,
+.checkbox input[type="checkbox"]:not(:checked) + label {
+  position: relative;
+  padding-left: 1.725rem;
+  cursor: pointer;
+  display: inline-block;
+}
+.checkbox input[type="checkbox"]:checked + label:before,
+.checkbox input[type="checkbox"]:not(:checked) + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: #fff;
+}
+.checkbox input[type="checkbox"]:checked + label:after,
+.checkbox input[type="checkbox"]:not(:checked) + label:after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: green;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+input[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+/* Checkbox Switch styles */
+.switch input[type="checkbox"],
+.switch input[type="radio"] {
+  display: none;
+}
+.switch input[type="checkbox"] + label,
+.switch input[type="radio"] + label {
+  width: 50px;
+  height: 25px;
+  border-radius: 25px;
+  border: 2px solid #333;
+  background-color: red;
+  display: inline-block;
+  content: "";
+  margin-right: 5px;
+  transition: background-color 0.5s linear;
+  line-height: 2;
+}
+.switch input[type="checkbox"] + label:hover,
+.switch input[type="radio"] + label:hover {
+  cursor: pointer;
+}
+.switch input[type="checkbox"] + label:before,
+.switch input[type="radio"] + label:before {
+  width: 25px;
+  height: 25px;
+  border-radius: 30px;
+  background-color: #EEE;
+  display: block;
+  content: "";
+  float: left;
+  margin-right: 5px;
+  transition: margin 0.2s linear, background-color 0.2s linear;
+  box-shadow: 0px 0px 5px #AAA;
+}
+.switch input[type="checkbox"]:checked + label,
+.switch input[type="radio"]:checked + label {
+  background-color: green;
+}
+.switch input[type="checkbox"]:checked + label:before,
+.switch input[type="radio"]:checked + label:before {
+  margin: 0 0 0 25px;
+  background-color: #EEE;
+}
+
+</style>
+	<body>
+
+		<div class="wrapper">
+			<div class="inner">
+				<div class="image-holder" style="margin-top: 5%; background-color:transparent;">
+					<img src="{{ static_url("images/blog.jpg") }}" alt="">
+				</div>
+				<form action="/storeindb" method="post" enctype="multipart/form-data">
+					 {% module xsrf_form_html() %}
+					<h3>Write NEW Blog</h3>
+					<div class="form-row">
+						<input type="text" class="form-control" name="author" placeholder="Blog Author" required>
+						<input type="text" class="form-control" name="title" placeholder="Blog title" required>
+					</div>
+					<div class="form-row">
+					<input type="text" class="form-control" placeholder="Your image link" id="image" name="fileupload">
+						<div class="form-holder">
+				
+						<input type="radio" id="rd1" name="catagory" value="tech" checked>
+						<label for="rd1">TECH</label>
+					
+						<input type="radio" id="rd2" name="catagory" value="music">
+						<label for="rd2">MUSIC</label>
+					
+						<input type="radio" id="rd3" name="catagory" value="political">
+						<label for="rd3">POLITICAL</label>
+					
+				
+									
+					</div>
+					</div>
+					<textarea name="desc" id="" placeholder="description" class="form-control" style="height: 130px;"  maxlength="450" required></textarea>
+					<button type="submit">Create
+						<i class="zmdi zmdi-long-arrow-right"></i>
+					</button>
+				</form>
+				
+			</div>
+		</div>
+
+	</body>
+</html>

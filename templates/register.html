@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>New User</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+	<link rel="stylesheet" type="text/css" href="{{ static_url("css/nunito-font.css") }}">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="{{ static_url("css/style.css") }}">
+		<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Comfortaa:300&display=swap" rel="stylesheet">
+</head>
+<style type="text/css">
+	body {
+  font-family: 'Comfortaa', cursive;
+}
+</style>
+<body style="overflow-y: hidden;" class="form-v9">
+	<div class="page-content">
+		<div class="form-v9-content" style="background-repeat: no-repeat; background-image: url('https://newevolutiondesigns.com/images/freebies/cool-wallpaper-3.jpg')">
+			<form class="form-detail" action="/register" method="post" autocomplete="off" >
+				{% module xsrf_form_html() %}
+				<h2>Registration Form</h2>
+				<div class="form-row-total">
+					<div class="form-row">
+						<input type="text" name="username" id="username" class="input-text" placeholder="Your Name" required>
+					</div>
+					<div class="form-row">
+						<input type="text" name="email" id="email" class="input-text" placeholder="Your Email" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+					</div>
+				</div>
+				<div class="form-row-total">
+					<div class="form-row">
+						<input type="password" name="password" id="password" class="input-text" placeholder="Your Password" required>
+					</div>
+					<div class="form-row">
+						<input type="password" name="comfirm-password" id="comfirm-password" class="input-text" placeholder="Comfirm Password" required>
+					</div>
+				</div>
+				<div class="form-row-last">
+					<input type="submit" name="register" class="register" value="Register">
+				</div>
+			</form>
+		</div>
+<script type="text/javascript">
+	var msg = {{msg}}
+	if (msg == "404") {
+	Swal.fire({
+					type: 'info',
+					allowOutsideClick: false,
+				 	title: 'Failed',
+				 	text: 'User already Created !',
+				 	confirmButtonText: 'Retry',
+				 	confirmButtonColor: '#8CD4F5',
+				 	//redirect script
+					})
+}
+</script>
+</body>
+</html>

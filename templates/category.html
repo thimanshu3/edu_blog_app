@@ -1,0 +1,723 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Edu Blog</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<!-- Font -->
+	 <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> 
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
+
+	<!-- Stylesheets -->
+
+	<link href="{{ static_url("common-css/bootstrap.css") }}" rel="stylesheet">
+
+	<link href="{{ static_url("common-css/ionicons.css") }}" rel="stylesheet">
+
+
+	<link href="{{ static_url("category/css/styles.css") }}" rel="stylesheet">
+
+	<link href="{{ static_url("category/css/responsive.css") }}" rel="stylesheet">
+
+</head>
+<style type="text/css">
+	body,html {
+  font-family: 'Comfortaa', cursive;
+}
+
+.header {
+  background-color: #fff;
+  box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+}
+
+.header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 80%;
+  height: 65px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.header li a {
+  display: block;
+  padding: 20px 20px;
+  border-right: 1px solid #f4f4f4;
+  text-decoration: none;
+}
+
+.header li a:hover,
+.header .menu-btn:hover {
+  background-color: #f4f4f4;
+}
+
+.header .logo {
+  display: block;
+  float: left;
+  font-size: 2em;
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+.header .menu {
+  clear: both;
+  max-height: 0;
+  transition: max-height .2s ease-out;
+}
+
+/* menu icon */
+
+.header .menu-icon {
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  padding: 28px 20px;
+  position: relative;
+  user-select: none;
+}
+
+.header .menu-icon .navicon {
+  background: #333;
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background .2s ease-out;
+  width: 18px;
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+  background: #333;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+
+.header .menu-icon .navicon:before {
+  top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+  top: -5px;
+}
+
+/* menu btn */
+
+.header .menu-btn {
+  display: none;
+}
+
+.header .menu-btn:checked ~ .menu {
+  max-height: 240px;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  top: 0;
+}
+
+.imageblog{
+	background: url("https://img.pngio.com/-blog-png-1276_723.png");
+}
+
+
+@media (min-width: 48em) {
+  .header li {
+    float: left;
+  }
+  .header li a {
+    padding: 20px 30px;
+  }
+  .header .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+  }
+  .header .menu-icon {
+    display: none;
+  }
+}
+
+
+#conversationdiv
+    {
+      margin-top:290px;
+      background: rgba(0, 0, 0, 0.2);
+      
+    }
+
+    .margin_auto{
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+    .card{
+      height: 400px;
+      //border-radius: 15px !important;
+      //background-color: rgba(0,0,0,0.4) !important;
+      -webkit-backdrop-filter: blur(10px);
+      
+      
+    }
+    .contacts_body{
+      padding:  0.75rem 0 !important;
+      overflow-y: auto;
+      white-space: nowrap;
+    }
+    .msg_card_body{
+      overflow-y: auto;
+       
+    }
+    .card-header{
+      
+      border-bottom: 0 !important;
+      
+      
+      -webkit-backdrop-filter: blur(10px);
+
+}
+    
+   .card-footer{
+    //border-radius: 0 0 15px 15px !important;
+      border-top: 0 !important;
+      
+  }
+    .container{
+      align-content: center;
+    }
+    
+    .sendbtn{
+      margin: 0 auto;
+      display: inline-block; 
+      width: 10%;
+      border-radius: 10px;
+      border: 2px;
+      padding: 10px 20px;
+      color: aliceblue;
+      background-color: #d6a844; 
+      }
+   
+  .msg_cotainer{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+    border-radius: 25px;
+    background-color: #82ccdd;
+    padding: 10px;
+    position: relative;
+        font-size: 20px;
+
+    
+  }
+  .msg_cotainer_send{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 10px;
+    border-radius: 25px;
+    background-color: #78e08f;
+    padding: 10px;
+    position: relative;
+    font-size: 20px;
+  }
+  .msg_time{
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    color: black;
+    font-size: 10px;
+  }
+  .msg_time_send{
+    position: absolute;
+    right:0;
+    bottom: -15px;
+    color: rgba(255,255,255,0.5);
+    font-size: 10px;
+    color:black;
+  }
+  .msg_head{
+    position: relative;
+  }
+</style>
+<body style="overflow-y: hidden;" >
+	<header class="header">
+  <a href="/home" class="logo" >EDUBLOG</a>
+  <ul class="menu" >
+    <li><a href="/home">HOME</a></li>
+    <li><a href="/info/edu">ABOUT US</a></li>
+     <li style="margin-left: 30%; font-size: 30px; color: red; margin-top: 1%;">FIND YOUR FAVOURITE BLOG</li>
+  </ul>
+  
+</header>
+
+	
+
+	<section class="blog-area section" style="">
+		<div class="container" style="float: right;" >
+
+			<div class="row" style="overflow-y: scroll; height: 677px;" >
+
+				{% block body %}
+             {% for entry in entries %}
+                <div style=" position: relative;height: 450px;width: 900px;margin: 50px auto;background-color: #FFF;-webkit-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);-moz-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);">
+              <div style="float: left;margin-top: 0.5%;position: relative;left: 30px;top: -30px;height: 320px;width: 530px;-webkit-box-shadow: 10px 10px 60px 0px rgba(0, 0, 0, 0.75);-moz-box-shadow: 10px 10px 60px 0px rgba(0, 0, 0, 0.75);box-shadow: 10px 10px 60px 0px rgba(0, 0, 0, 0.75);overflow: hidden;"><img id="imageblog" style="position: absolute;left: 50%;top: 50%;height: auto;width: 100%;-webkit-transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);" src="{{entry[6]}}"/></div>
+              <div style="margin-left: 590px;margin-right: 20px;">
+                <h1 style="padding-top: 15px;font-size: 1.3rem;color: #4B4B4B;">{{ entry[1]}}</h1>
+                <div style="background-color: #9ECAFF;height: 30px;width: 210px;border-radius: 20px;"><img style="padding-top: 5px;margin-left: 10px;float: left;height: 20px;width: 20px;border-radius: 50%;" src="{{entry[6]}}"/>
+                  <h2 style="padding-top: 8px;margin-right: 6px;text-align: right;font-size: 0.8rem;">{{ entry[2]}}</h2>
+                </div>
+                <div style="margin-top: 10px;border: 1px solid #C3C3C3;"></div>
+                <p style=" text-align: justify;padding-top: 10px;font-size: 0.95rem;line-height: 150%;color: #4B4B4B;">{{entry[3]}}</p>
+              </div>
+             <div class="card-footer" style=" position: absolute; bottom: 3%; width: 50%; 		">
+              <ul style="">
+               
+				
+					
+ 				 <i class="far fa-thumbs-up" id="like" style="margin-left: 8%;">{{entry[7]}}</i>
+ 				 
+
+			
+				
+              
+					
+ 				 <i id="dislike" class="far fa-thumbs-down" style="margin-left: 8%;">{{entry[7]}}</i>
+ 				 
+				
+				
+				
+				
+				
+               
+              </ul>
+             </div>
+            </div>  
+               {% end %}
+              {% end%}
+				<!-- blog-info -->
+
+						</div><!-- single-post -->
+
+					</div><!-- card -->
+				</div><!-- col-lg-4 col-md-6 -->
+<!-- single-post -->
+					</div><!-- card -->
+				</div><!-- col-lg-4 col-md-6 -->
+
+			</div><!-- row -->
+
+
+		</div><!-- container -->
+		
+			<div class="row" style="height: 680px; background-color: #FFF;-webkit-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);-moz-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);">
+				<div class="row" style="height: 680px; background-color: #FFF;-webkit-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);-moz-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);">
+        <footer style=" width: 85%; margin-left: 5%;" class="footer" >
+
+            <a class="logo" href="#"><img src="{{static_url("images/logo-1.png")}}" alt="Logo Image"></a>
+            
+            <ul class="icons">
+              <li><a href="#"><i class="ion-social-facebook-outline"></i></a></li>
+              <li><a href="#"><i class="ion-social-twitter-outline"></i></a></li>
+              <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
+              <li><a href="#"><i class="ion-social-vimeo-outline"></i></a></li>
+              <li><a href="#"><i class="ion-social-pinterest-outline"></i></a></li>
+            </ul>
+
+          
+      </footer>
+        <div style="border:2px solid black; margin-left: 2%; width: 98%; margin-top: 1%; box-shadow: 10px 7px 13px 10px #888;" class="card " id="conversationdiv"  >
+                  <!-- Weather Card Start -->
+                    
+                    
+                        
+                  
+                    <!-- weather card end here -->
+                  <!-- dynamiclly creating massage card when converstion trigger -->
+                      <div class="card-body msg_card_body" id="div1">
+                      
+                       
+                       
+                      </div>
+                     
+                        <div class="card-footer" style="background-color:black;">
+                          <div class="input-group">
+                        
+                            <button  id="record-btn" class="sendbtn"><i class="fas fa-microphone" id="micicon"></i></button>
+                      
+                          </div>
+                        </div>
+                </div>    <script src="{{static_url("js/botscriptjs.js")}}"></script>
+        
+          
+        
+      </div>
+				
+			</div>
+		
+	</section><!-- section -->
+
+		
+
+	<!-- SCIPTS -->
+
+	<script src="{{ static_url("common-js/jquery-3.1.1.min.js") }}"></script>
+
+	<script src="{{ static_url("common-js/tether.min.js") }}"></script>
+
+	<script src="{{ static_url("common-js/bootstrap.js") }}"></script>
+
+	<script src="{{ static_url("common-js/scripts.js") }}"></script>
+	
+  <!-- Trigger the modal with a button -->
+  <!-- Modal -->
+  
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      <script type="text/javascript">
+      	function storedislike(blogid) {
+      		
+     	var token = $.cookie('_xsrf');
+     	$.ajax({
+		    url: '/storedislike',
+		    headers: {'X-XSRFToken' : token },
+		    data:  blogid,
+		    dataType: "text",
+		    type: "POST",
+		    success: function ( ) {
+		       alert("hi")
+		    },
+		    error: function () {
+		        alert('ajax fail')
+		    },
+		});	
+	}
+
+      	function storelikes(blogid) {
+      		
+     	var token = $.cookie('_xsrf');
+     	$.ajax({
+		    url: '/storelike',
+		    headers: {'X-XSRFToken' : token },
+		    data:  blogid,
+		    dataType: "text",
+		    type: "POST",
+		    success: function ( ) {
+		    	document.getElementByClassName('far fa-thumbs-up').style.display = "none";
+		       alert("success");
+		    },
+		    error: function () {
+		        alert('ajax fail')
+		    },
+		});	
+	}
+
+
+      </script>
+
+      <!-- js for sending data to tornado method with cookies -->
+      <script type="text/javascript">
+      	
+  (function (factory) {
+	if (typeof define === 'function' && define.amd) {
+		// AMD
+		define(['jquery'], factory);
+	} else if (typeof exports === 'object') {
+		// CommonJS
+		factory(require('jquery'));
+	} else {
+		// Browser globals
+		factory(jQuery);
+	}
+}(function ($) {
+
+	var pluses = /\+/g;
+
+	function encode(s) {
+		return config.raw ? s : encodeURIComponent(s);
+	}
+
+	function decode(s) {
+		return config.raw ? s : decodeURIComponent(s);
+	}
+
+	function stringifyCookieValue(value) {
+		return encode(config.json ? JSON.stringify(value) : String(value));
+	}
+
+	function parseCookieValue(s) {
+		if (s.indexOf('"') === 0) {
+			// This is a quoted cookie as according to RFC2068, unescape...
+			s = s.slice(1, -1).replace(/\\"/g, '"').replace(/\\\\/g, '\\');
+		}
+
+		try {
+			// Replace server-side written pluses with spaces.
+			// If we can't decode the cookie, ignore it, it's unusable.
+			// If we can't parse the cookie, ignore it, it's unusable.
+			s = decodeURIComponent(s.replace(pluses, ' '));
+			return config.json ? JSON.parse(s) : s;
+		} catch(e) {}
+	}
+
+	function read(s, converter) {
+		var value = config.raw ? s : parseCookieValue(s);
+		return $.isFunction(converter) ? converter(value) : value;
+	}
+
+	var config = $.cookie = function (key, value, options) {
+
+		// Write
+
+		if (value !== undefined && !$.isFunction(value)) {
+			options = $.extend({}, config.defaults, options);
+
+			if (typeof options.expires === 'number') {
+				var days = options.expires, t = options.expires = new Date();
+				t.setTime(+t + days * 864e+5);
+			}
+
+			return (document.cookie = [
+				encode(key), '=', stringifyCookieValue(value),
+				options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
+				options.path    ? '; path=' + options.path : '',
+				options.domain  ? '; domain=' + options.domain : '',
+				options.secure  ? '; secure' : ''
+			].join(''));
+		}
+
+		// Read
+
+		var result = key ? undefined : {};
+
+		// To prevent the for loop in the first place assign an empty array
+		// in case there are no cookies at all. Also prevents odd result when
+		// calling $.cookie().
+		var cookies = document.cookie ? document.cookie.split('; ') : [];
+
+		for (var i = 0, l = cookies.length; i < l; i++) {
+			var parts = cookies[i].split('=');
+			var name = decode(parts.shift());
+			var cookie = parts.join('=');
+
+			if (key && key === name) {
+				// If second argument (value) is a function it's a converter...
+				result = read(cookie, value);
+				break;
+			}
+
+			// Prevent storing a cookie that we couldn't decode.
+			if (!key && (cookie = read(cookie)) !== undefined) {
+				result[name] = cookie;
+			}
+		}
+
+		return result;
+	};
+
+	config.defaults = {};
+
+	$.removeCookie = function (key, options) {
+		if ($.cookie(key) === undefined) {
+			return false;
+		}
+
+		// Must not alter options, thus extending a fresh object...
+		$.cookie(key, '', $.extend({}, options, { expires: -1 }));
+		return !$.cookie(key);
+	};
+
+}));
+
+      </script>
+<!-- like dislike function -->
+      <script type="text/javascript">
+      	(function ($) {
+
+    var likeBtn = 'like',
+        dislikeBtn = 'dislike';
+
+    var defaults = {
+        click: null,
+        beforeClick: null,
+        initialValue: 0,
+        reverseMode: true,
+        readOnly: false,
+        likeBtnClass: 'like',
+        dislikeBtnClass: 'dislike',
+        activeClass: 'active',
+        disabledClass: 'disabled'
+    };
+
+    function LikeDislike(element, options) {
+        this.element = element;
+        this.opts = $.extend({}, defaults, options);
+        this.init();
+    }
+
+    LikeDislike.prototype = {
+        init: function () {
+            this.btns = $(this.element).find('.' + this.opts.likeBtnClass + ', .' + this.opts.dislikeBtnClass);
+            this.readOnly(this.opts.readOnly);
+            if (this.opts.initialValue !== 0) {
+                var activeBtn = this.opts.initialValue === 1 ? likeBtn : dislikeBtn;
+                this.btnDown(activeBtn);
+            }
+            return this;
+        },
+        readOnly: function (state) {
+            var btns = this.btns;
+            if (!state) {
+                if (!this.opts.reverseMode) {
+                    var notActiveBtns = btns.not('.' + this.opts.activeClass);
+                    if (notActiveBtns.length) {
+                        btns = notActiveBtns;
+                    }
+                }
+                this.enable(btns);
+            } else {
+                this.disable(btns);
+            }
+        },
+        getBtn: function (btnType) {
+            if (btnType === likeBtn) {
+                return $(this.element).find('.' + this.opts.likeBtnClass);
+            } else if (btnType === dislikeBtn) {
+                return $(this.element).find('.' + this.opts.dislikeBtnClass);
+            } else {
+                $.error('Wrong btnType: ' + btnType);
+            }
+        },
+        btnDown: function (btnType) {
+            var btn = this.getBtn(btnType);
+            btn.addClass(this.opts.activeClass);
+            if (!this.opts.reverseMode) {
+                this.disable(btn);
+            }
+        },
+        btnUp: function (btnType) {
+            var btn = this.getBtn(btnType);
+            btn.removeClass(this.opts.activeClass);
+            if (!this.opts.reverseMode) {
+                this.enable(btn);
+            }
+        },
+        enable: function (btn) {
+            var self = this;
+            var opts = self.opts;
+
+            btn.removeClass(opts.disabledClass);
+
+            if (opts.beforeClick) {
+                btn.on('beforeClick', function (event) {
+                    return opts.beforeClick.call(self, event);
+                });
+            }
+
+            btn.on('click', function (event) {
+                var btn = $(this);
+
+                if (opts.beforeClick && !btn.triggerHandler('beforeClick')) {
+                    return false;
+                }
+
+                var btnType = btn.hasClass(opts.likeBtnClass) ? likeBtn : dislikeBtn;
+                var hasActive = self.btns.hasClass(opts.activeClass);
+                var isActive = btn.hasClass(opts.activeClass);
+
+                var value = 0, l = 0, d = 0;
+
+                if (btnType === likeBtn) {
+                    if (isActive) {
+                        self.btnUp(likeBtn);
+                        l = -1;
+                    } else {
+                        if (hasActive) {
+                            self.btnUp(dislikeBtn);
+                            d = -1;
+                        }
+                        self.btnDown(likeBtn);
+                        l = 1;
+                        value = 1;
+                    }
+                } else {
+                    if (isActive) {
+                        self.btnUp(dislikeBtn);
+                        d = -1;
+                    } else {
+                        if (hasActive) {
+                            self.btnUp(likeBtn);
+                            l = -1;
+                        }
+                        self.btnDown(dislikeBtn);
+                        d = 1;
+                        value = -1;
+                    }
+                }
+
+                opts.click.call(self, value, l, d, event);
+            });
+        },
+        disable: function (btn) {
+            btn.addClass(this.opts.disabledClass);
+            btn.off();
+        }
+    };
+
+    $.fn.likeDislike = function (options) {
+        return this.each(function () {
+            if (!$.data(this, "plugin_LikeDislike")) {
+                $.data(this, "plugin_LikeDislike",
+                    new LikeDislike(this, options));
+            }
+        });
+    };
+
+})(jQuery);
+      </script>
+    </div>
+  </div>
+</body>
+</html>

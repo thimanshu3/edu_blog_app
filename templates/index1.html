@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="	{{ static_url("vendor/bootstrap/css/bootstrap.min.css") }} ">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="	{{ static_url("fonts/font-awesome-4.7.0/css/font-awesome.min.css") }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ static_url("vendor/animate/animate.css") }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ static_url("vendor/css-hamburgers/hamburgers.min.css") }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ static_url("vendor/select2/select2.min.css") }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ static_url("css/util.css") }}">
+	<link rel="stylesheet" type="text/css" href="{{ static_url("css/main.css") }}">
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa:300&display=swap" rel="stylesheet">
+<!--===============================================================================================-->
+</head>
+<style type="text/css">
+	body {
+  font-family: 'Comfortaa', cursive;
+}
+</style>
+<body style="background-image: url({{ static_url("images/logo-1.png") }});">
+
+	<div class="limiter" >
+		
+		<div class="container-login100">
+			<div class="header">
+
+			</div>
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="{{ static_url("images/img-01.png") }}" alt="IMG">
+				</div>
+					
+				<form autocomplete="off" class="login100-form validate-form" action="/login" method="POST">
+				 {% module xsrf_form_html() %}
+					<span class="login100-form-title">
+						Member Login
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz" >
+						<input autocomplete="false" class="input100"  type="text" name="email" placeholder="Email" id="mail" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="input100" type="password" name="password" placeholder="Password" id="password" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<input type="submit" value="Login" class="login100-form-btn" />
+
+
+					</div>
+
+					<div class="text-center p-t-12">
+						<span class="txt1">
+							Forgot
+						</span>
+						<a class="txt2" href="/forgot">
+							Username / Password?
+						</a>
+					</div>
+
+					<div class="text-center p-t-136">
+						<a class="txt2" href="/register">
+							Create your Account
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+	<script src="{{ static_url("vendor/jquery/jquery-3.2.1.min.js") }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ static_url("vendor/bootstrap/js/popper.js") }}"></script>
+	<script src="{{ static_url("vendor/bootstrap/js/bootstrap.min.js") }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ static_url("vendor/select2/select2.min.js") }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ static_url("vendor/tilt/tilt.jquery.min.js") }}"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="{{ static_url("js/main.js") }}"></script>
+		</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<script type="text/javascript">
+	var msg = {{msg}}
+	if (msg == "404") {
+	Swal.fire({
+					type: 'error',
+					allowOutsideClick: false,
+				 	title: 'Failed Login',
+				 	text: 'Credential Does not Matched !',
+				 	confirmButtonText: 'Retry',
+				 	confirmButtonColor: '#8CD4F5',
+				 	//redirect script
+					})
+}
+
+</script>
+</body>
+</html>
