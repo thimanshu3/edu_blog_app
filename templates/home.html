@@ -281,36 +281,145 @@
 			<div id="main" class="row" style="overflow-y: scroll; height: 682px; " >
 
 				{% block body %}
-             {% for entry in entries[0] %}
-                <div class="col-lg-4 col-md-6" style="border-radius: 15%;">
-					<div class="card h-100" style="border-radius: 15%;">
-						<div class="single-post post-style-1" style="border-radius: 5%;">
+          {% if len(entries)==2 %}
+          
+                      {% for entry in entries[1] %}
+                          <div class="col-lg-4 col-md-6" style="border-radius: 15%;">
+          					<div class="card h-100" style="border-radius: 15%;">
+          						<div class="single-post post-style-1" style="border-radius: 5%;">
 
-							<div class="blog-image" style="border-radius: 5%;"><img src="{{entry[6]}}" alt="Blog Image" style="border-radius: 5%;"></div>
+          							<div class="blog-image" style="border-radius: 5%;"><img src="{{entry[6]}}" alt="Blog Image" style="border-radius: 5%;"></div>
 
-							<a class="avatar" href="#"><img src="{{entry[6]}}" alt="Profile Image"></a>
+          							<a class="avatar" href="#"><img src="{{entry[6]}}" alt="Profile Image"></a>
 
-							<div class="blog-info">
-								<h4 class="title"><a href="#"><b>{{entry[1]}}</b></a></h4>
+          							<div class="blog-info">
+          								<h4 class="title"><a href="#"><b>{{entry[1]}}</b></a></h4>
 
-								<ul class="post-footer">
+          								<ul class="post-footer">
 
-									<button style="margin-bottom: 2%;" id="{{entry[0]}}" class="btn btn-outline-primary" onclick="like('{{entry[0]}}')"><i class="far fa-thumbs-up"></i>{{entry[7]}}</button>
-									<button style="margin-bottom: 2%;" id="dis{{entry[0]}}" class="btn btn-outline-danger" 
-                   onclick="dislike('dis{{entry[0]}}')"><i class="far fa-thumbs-down"></i>{{entry[8]}}</button>
-                  <button style="margin-bottom: 2%;" class="btn btn-outline-dark" onclick="userfullpost('{{entry[0]}}')">
+          									<button style="margin-bottom: 2%;" id="{{entry[0]}}" class="btn btn-outline-primary" onclick="like('{{entry[0]}}')"><i class="far fa-thumbs-up"></i>{{entry[7]}}</button>
+          									<button style="margin-bottom: 2%;" id="dis{{entry[0]}}" class="btn btn-outline-danger" 
+                             onclick="dislike('dis{{entry[0]}}')"><i class="far fa-thumbs-down"></i>{{entry[8]}}</button>
+                            <button style="margin-bottom: 2%;" class="btn btn-outline-dark" onclick="userfullpost('{{entry[0]}}')">
 
 
-									<i class="fas fa-angle-double-right"></i>More</button>
-								</ul>
-							</div><!-- blog-info -->
+          									<i class="fas fa-angle-double-right"></i>More</button>
+          								</ul>
+          							</div><!-- blog-info -->
 
-						</div><!-- single-post -->
+          						</div><!-- single-post -->
 
-					</div><!-- card -->
-				</div><!-- col-lg-4 col-md-6 -->
-               {% end %}
-              {% end%}
+          					</div><!-- card -->
+          				</div><!-- col-lg-4 col-md-6 -->
+                      {% end %}
+          {% else %}
+          
+                      {% set i=0 %}
+                      {% for entry in entries[1] %}
+
+                          <div class="col-lg-4 col-md-6" style="border-radius: 15%;">
+                    <div class="card h-100" style="border-radius: 15%;">
+                      <div class="single-post post-style-1" style="border-radius: 5%;">
+
+                        <div class="blog-image" style="border-radius: 5%;"><img src="{{entry[6]}}" alt="Blog Image" style="border-radius: 5%;"></div>
+
+                        <a class="avatar" href="#"><img src="{{entry[6]}}" alt="Profile Image"></a>
+
+                        <div class="blog-info">
+                          <h4 class="title"><a href="#"><b>{{entry[1]}}</b></a></h4>
+
+                          <ul class="post-footer">
+                            {% if len(entries[2])==0 %}
+                            
+                              {% set flag=0 %}
+                              {% for ent in entries[3] %}
+                              {% if entries[1][i][0] == ent[0] %}
+                               {% set flag=1 %}
+                               
+                                <button style="margin-bottom: 2%;" id="{{entry[0]}}" class="btn btn-outline-primary active" onclick="like('{{entry[0]}}')"><i class="far fa-thumbs-up"></i>{{entry[7]}}</button>
+                                <button style="margin-bottom: 2%;" id="dis{{entry[0]}}" class="btn btn-outline-danger" 
+                                 onclick="dislike('dis{{entry[0]}}')" disabled><i class="far fa-thumbs-down"></i>{{entry[8]}}</button>
+                                {% break %}
+                              {% end %}
+                              {% end %}
+                              {% if flag==0 %}
+                              
+                                <button style="margin-bottom: 2%;" id="{{entry[0]}}" class="btn btn-outline-primary" onclick="like('{{entry[0]}}')"><i class="far fa-thumbs-up"></i>{{entry[7]}}</button>
+                                <button style="margin-bottom: 2%;" id="dis{{entry[0]}}" class="btn btn-outline-danger" 
+                                 onclick="dislike('dis{{entry[0]}}')"><i class="far fa-thumbs-down"></i>{{entry[8]}}</button>
+                              
+                              {% end %}
+                                
+                                <button style="margin-bottom: 2%;" class="btn btn-outline-dark" onclick="userfullpost('{{entry[0]}}')">
+                            
+
+                            {% elif len(entries[3])==0 %}
+                            
+                              
+                              {% set flag=0 %}
+                                {% for ent in entries[2] %}
+                                  {% if entries[1][i][0] == ent[0] %}
+                                   {dislike only}
+                                   {% set flag=1 %}
+                                   <button style="margin-bottom: 2%;" id="{{entry[0]}}" class="btn btn-outline-primary" onclick="like('{{entry[0]}}')" disabled><i class="far fa-thumbs-up"></i>{{entry[7]}}</button>
+                                   <button style="margin-bottom: 2%;" id="dis{{entry[0]}}" class="btn btn-outline-danger active" 
+                                 onclick="dislike('dis{{entry[0]}}')"><i class="far fa-thumbs-down"></i>{{entry[8]}}</button>
+                                  {% break %}
+                                  {% end %}
+                                {% end %}
+                              {% if flag==0 %}
+                                  <button style="margin-bottom: 2%;" id="{{entry[0]}}" class="btn btn-outline-primary" onclick="like('{{entry[0]}}')"><i class="far fa-thumbs-up"></i>{{entry[7]}}</button>
+                                  <button style="margin-bottom: 2%;" id="dis{{entry[0]}}" class="btn btn-outline-danger" 
+                               onclick="dislike('dis{{entry[0]}}')"><i class="far fa-thumbs-down"></i>{{entry[8]}}</button>
+                              {% end %}
+                            {% else %}
+                            
+                                {% set flag1=0 %}
+                              {% for ent in entries[3] %}
+                              {% if entries[1][i][0] == ent[0] %}
+                               {% set flag1=1 %}
+                                <button style="margin-bottom: 2%;" id="{{entry[0]}}" class="btn btn-outline-primary active" onclick="like('{{entry[0]}}')"><i class="far fa-thumbs-up"></i>{{entry[7]}}</button>
+                                <button style="margin-bottom: 2%;" id="dis{{entry[0]}}" class="btn btn-outline-danger" 
+                                     onclick="dislike('dis{{entry[0]}}')" disabled><i class="far fa-thumbs-down"></i>{{entry[8]}}</button>
+                                {% break %}
+                              {% end %}
+                              {% end %}
+                              {% if flag1==0 %}
+                                    {% set flag2=0 %}
+                                    {% for entr in entries[2] %}
+                                      {% if entries[1][i][0] == entr[0] %}
+                                       {% set flag2=1 %}
+                                       <button style="margin-bottom: 2%;" id="{{entry[0]}}" class="btn btn-outline-primary" onclick="like('{{entry[0]}}')" disabled><i class="far fa-thumbs-up" disabled></i>{{entry[7]}}</button>
+                                       <button style="margin-bottom: 2%;" id="dis{{entry[0]}}" class="btn btn-outline-danger active" 
+                                     onclick="dislike('dis{{entry[0]}}')"><i class="far fa-thumbs-down"></i>{{entry[8]}}</button>
+                                      {% break %}
+                                      {% end %}
+                                    {% end %}
+                                  {% if flag2==0 %}
+                                      <button style="margin-bottom: 2%;" id="{{entry[0]}}" class="btn btn-outline-primary" onclick="like('{{entry[0]}}')"><i class="far fa-thumbs-up"></i>{{entry[7]}}</button>
+                                      <button style="margin-bottom: 2%;" id="dis{{entry[0]}}" class="btn btn-outline-danger" 
+                                   onclick="dislike('dis{{entry[0]}}')"><i class="far fa-thumbs-down"></i>{{entry[8]}}</button>
+                                  {% end %}
+                              {% end %}
+
+
+                              
+
+                                <button style="margin-bottom: 2%;" class="btn btn-outline-dark" onclick="userfullpost('{{entry[0]}}')">
+                            {% end %}  
+
+                            <i class="fas fa-angle-double-right"></i>More</button>
+                          </ul>
+                        </div><!-- blog-info -->
+
+                      </div><!-- single-post -->
+
+                    </div><!-- card -->
+                  </div><!-- col-lg-4 col-md-6 -->
+                      {% set i=i+1 %}
+                      {% end %}
+          {% end %}
+        {% end%}
 				<!-- blog-info -->
 
 						</div><!-- single-post -->

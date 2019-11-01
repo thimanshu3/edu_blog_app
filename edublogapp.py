@@ -26,8 +26,8 @@ pool = tormysql.helpers.ConnectionPool(
     wait_connection_timeout = 3, #wait connection timeout
     host = "localhost",
     user = "root",
-    passwd = "rj27CA@1783",
-    db = "edu_db",
+    passwd = "mngv999",
+    db = "edu_blog",
     charset = "utf8"
 )
 
@@ -55,22 +55,22 @@ class MainHandler(BaseHandler):
     @tornado.gen.coroutine
     def get(self):
         email =self.get_secure_cookie("user")
-        entry1 = yield pool.execute("SELECT * FROM blog_user")
-        entry2 = yield pool.execute("SELECT * FROM blog_user order by blog_likes desc limit 5")
-        entry3 = yield pool.execute("SELECT blog_id FROM blog_likes where blog_like = '"+email.decode('ASCII')+"'")
-        entry4 = yield pool.execute("SELECT blog_id FROM blog_likes where blog_dislike = '"+email.decode('ASCII')+"'")
+        entry1 = yield pool.execute("SELECT * FROM blog_user order by blog_likes desc limit 5")
+        entry2 = yield pool.execute("SELECT blog_id FROM blog_likes where blog_like = '"+email.decode('ASCII')+"'")
+        entry3 = yield pool.execute("SELECT blog_id FROM blog_likes where blog_dislike = '"+email.decode('ASCII')+"'")
+        entry4 = yield pool.execute("SELECT * from blog_user")
         data1=entry1.fetchall()
-        data2=entry2.fetchall()
-        
-        if entry3.rowcount or entry4.rowcount:
+        data4=entry4.fetchall()
+        print(data4[0][0])
+        if entry2.rowcount or entry3.rowcount:
             print("chale gaye bhai")
-            data3 = entry3.fetchall()
-            data4 = entry4.fetchall()    
-            data=[data1,data2,data3,data4]
+            data2 = entry2.fetchall()
+            data3 = entry3.fetchall()    
+            data=[data1,data4,data3,data2]
             self.render("home.html", entries=data)
 
         else:
-            data=[data1,data2]
+            data=[data1,data4]
             self.render("home.html", entries=data)
 
         # allblogs = yield pool.execute("Select * from blog_user")

@@ -29,8 +29,7 @@ CREATE TABLE `blog_comment` (
   `user_email` varchar(50) DEFAULT NULL,
   `timestamp` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`comment_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Dumping data for table `blog_comment`
@@ -55,9 +54,7 @@ CREATE TABLE `blog_likes` (
   `blog_id` int(8) NOT NULL,
   `action_id` varchar(10) NOT NULL,
   PRIMARY KEY (`action_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
+);
 --
 -- Dumping data for table `blog_likes`
 --
@@ -88,8 +85,7 @@ CREATE TABLE `blog_user` (
   `datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`blog_id`),
   UNIQUE KEY `blog_id_UNIQUE` (`blog_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Dumping data for table `blog_user`
@@ -115,8 +111,7 @@ CREATE TABLE `users_details` (
   `user_password` varchar(100) NOT NULL,
   UNIQUE KEY `user_emai_UNIQUE` (`user_emai`),
   UNIQUE KEY `user_idd_UNIQUE` (`user_idd`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Dumping data for table `users_details`
