@@ -91,7 +91,7 @@ PyQt5-sip==4.19.18
 pyshorteners==0.6.1
 python-dateutil==2.7.3
 pytz==2018.6
-PyYAML==3.13
+PyYAML==5.4
 qrcode==6.0
 qrtools==0.0.2
 requests==2.19.1
