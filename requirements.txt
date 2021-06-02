@@ -110,7 +110,7 @@ tormysql==0.4.0
 tornado==6.0.3
 Tornado-MySQL==0.5.1
 typed-ast==1.1.0
-urllib3==1.23
+urllib3==1.26.5
 urlparser==0.1.2
 virtualenv==16.4.1
 watson-developer-cloud==2.2.5
