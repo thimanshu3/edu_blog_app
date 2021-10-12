@@ -67,7 +67,7 @@ mccabe==0.6.1
 mysql-connector==2.1.6
 mysqlclient==1.4.1
 numpy==1.15.4
-opencv-contrib-python==4.1.0.25
+opencv-contrib-python==4.1.1.26
 opencv-python==3.4.4.19
 pandas==0.25.0
 parse==1.12.0
