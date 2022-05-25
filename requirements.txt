@@ -78,7 +78,7 @@ psycopg2-binary==2.8.3
 pyasn1==0.4.4
 PyAudio==0.2.11
 pycparser==2.19
-PyJWT==1.7.1
+PyJWT==2.4.0
 pylint==2.1.1
 pylint-django==2.0.2
 pylint-plugin-utils==0.4
